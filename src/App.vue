@@ -2,12 +2,12 @@
 <body id="app">
   <div class="calculator">
     <div class="calculator__item calculator--answer">{{answer}}</div>
-    <button class="calculator__item calculator--clean">C</button>
-    <button class="calculator__item calculator--division">/</button>
-    <button class="calculator__item calculator--multiplication">*</button>
-    <button class="calculator__item calculator--minus">-</button>
-    <button class="calculator__item calculator--plus">+</button>
-    <button class="calculator__item calculator--equal">=</button>
+    <button class="calculator__item calculator--clean"          >C</button>
+    <button class="calculator__item calculator--division"       v-on:click="operation" value="/">/</button>
+    <button class="calculator__item calculator--multiplication" v-on:click="operation" value="*">*</button>
+    <button class="calculator__item calculator--minus"          v-on:click="operation" value="-">-</button>
+    <button class="calculator__item calculator--plus"           v-on:click="operation" value="+">+</button>
+    <button class="calculator__item calculator--equal"          v-on:click="operation" value="=">=</button>
     <button class="calculator__item calculator--decimal">.</button>
     <button class="calculator__item calculator--n0" v-on:click="num" value="0" >0</button>
     <button class="calculator__item calculator--n1" v-on:click="num" value="1" >1</button>
@@ -32,10 +32,14 @@ export default {
   },
    methods: {
     num: function (event) {
-      // // `this` inside methods point to the Vue instance
       return (this.answer = event.target.value)
-  
-    }
+
+    },
+    operation : function (event) {
+      return (this.answer = event.target.value)
+
+    },
+
   }
 };
 </script>
@@ -57,11 +61,12 @@ button {
   border: none;
   outline: none;
   font-size: 1.2em;
-  border: none;
   &:active {
+    transition-duration: 0.2s;
     border-radius: 4px;
-    box-shadow: 3px 3px 0px $main-color;
+    box-shadow: 0px 0px 0px $main-color;
     color: orange;
+    border-radius: 40px;
   }
 }
 #app {
@@ -102,6 +107,8 @@ button {
     grid-area: answer;
     background-color: lighten($main-color, 10%);
     box-shadow: inset 0px 0px 4px #1e1f20, -2px -2px 10px #979393;
+    font-size: 3em;
+    color: orange;
   }
 
   &--clean {

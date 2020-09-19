@@ -30,10 +30,16 @@ export default {
 </script>
 
 <style lang="scss">
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 @function height($size: $width){
   @return $size * 1.7;
 }
-$width: 15em;
+$width: 100vw;
+$height: 100vh;
 $main-color: #60627B;
 button{
   cursor: pointer;
@@ -47,14 +53,14 @@ button{
       color: orange;
   }
 }
-.app{
+#app{
   background-color: darken($main-color , 2%);
   width : $width;
-  height: height($width);  
+  height: $height;  
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px;
+  // padding: 10px;
 }
 .calculator {
   height: 90%;

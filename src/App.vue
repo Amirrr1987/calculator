@@ -2,23 +2,23 @@
 <body id="app">
   <div class="calculator">
     <div class="calculator__item calculator--answer">{{answer}}</div>
-    <button class="calculator__item calculator--clean"          >C</button>
-    <button class="calculator__item calculator--division"       v-on:click="operation" value="/">/</button>
-    <button class="calculator__item calculator--multiplication" v-on:click="operation" value="*">*</button>
-    <button class="calculator__item calculator--minus"          v-on:click="operation" value="-">-</button>
-    <button class="calculator__item calculator--plus"           v-on:click="operation" value="+">+</button>
-    <button class="calculator__item calculator--equal"          v-on:click="operation" value="=">=</button>
-    <button class="calculator__item calculator--decimal">.</button>
-    <button class="calculator__item calculator--n0" v-on:click="num" value="0" >0</button>
-    <button class="calculator__item calculator--n1" v-on:click="num" value="1" >1</button>
-    <button class="calculator__item calculator--n2" v-on:click="num" value="2" >2</button>
-    <button class="calculator__item calculator--n3" v-on:click="num" value="3" >3</button>
-    <button class="calculator__item calculator--n4" v-on:click="num" value="4" >4</button>
-    <button class="calculator__item calculator--n5" v-on:click="num" value="5" >5</button>
-    <button class="calculator__item calculator--n6" v-on:click="num" value="6" >6</button>
-    <button class="calculator__item calculator--n7" v-on:click="num" value="7" >7</button>
-    <button class="calculator__item calculator--n8" v-on:click="num" value="8" >8</button>
-    <button class="calculator__item calculator--n9" v-on:click="num" value="9" >9</button>
+    <button class="calculator__item calculator--clean"          @click="clean">C</button>
+    <button class="calculator__item calculator--division"       @click="operation" value="/">/</button>
+    <button class="calculator__item calculator--multiplication" @click="operation" value="*">*</button>
+    <button class="calculator__item calculator--minus"          @click="operation" value="-">-</button>
+    <button class="calculator__item calculator--plus"           @click="operation" value="+">+</button>
+    <button class="calculator__item calculator--equal"          @click="operation" value="=">=</button>
+    <button class="calculator__item calculator--decimal" value=".">.</button>
+    <button class="calculator__item calculator--n0" @click="num" value="0" >0</button>
+    <button class="calculator__item calculator--n1" @click="num" value="1" >1</button>
+    <button class="calculator__item calculator--n2" @click="num" value="2" >2</button>
+    <button class="calculator__item calculator--n3" @click="num" value="3" >3</button>
+    <button class="calculator__item calculator--n4" @click="num" value="4" >4</button>
+    <button class="calculator__item calculator--n5" @click="num" value="5" >5</button>
+    <button class="calculator__item calculator--n6" @click="num" value="6" >6</button>
+    <button class="calculator__item calculator--n7" @click="num" value="7" >7</button>
+    <button class="calculator__item calculator--n8" @click="num" value="8" >8</button>
+    <button class="calculator__item calculator--n9" @click="num" value="9" >9</button>
   </div>
 </body>
 </template>
@@ -33,13 +33,14 @@ export default {
    methods: {
     num: function (event) {
       return (this.answer = event.target.value)
-
     },
     operation : function (event) {
       return (this.answer = event.target.value)
-
     },
 
+    clean : function (event) {
+      return (this.answer = event.splice(this.event.text()))
+    },
   }
 };
 </script>
